@@ -48,6 +48,7 @@ function test(req, res, next){
 
 function addPerson(req, res, next) {
   console.log("ADDING PERSON");
+}
 
 function locations(req,res, next){
     console.log('LOCATIONS CALLBACK', req.body);
