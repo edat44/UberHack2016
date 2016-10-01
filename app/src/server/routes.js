@@ -47,7 +47,13 @@ function test(req, res, next){
 }
 
 function addPerson(req, res, next) {
-  console.log("ADDING PERSON");
+  console.log("ADDING PERSON", req.body);
+  var user = req.body.user;
+  console.log(user);
+  db.collection('locations', (err, coll)=>{
+      coll.insert(req.body);
+      res.send("Ok");
+  })
 }
 
 function locations(req,res, next){
