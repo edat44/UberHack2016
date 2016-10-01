@@ -1,0 +1,16 @@
+/**
+ * master.scss
+ *
+ * Top level stylesheet
+ *
+ */
+
+// Overwrite the default from font-awesome
+$fa-font-path: "./fonts";
+
+//=========
+// Imports
+//=========
+
+@import "bootstrap";
+@import "font-awesome";
