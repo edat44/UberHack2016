@@ -18,7 +18,8 @@ const api_prefix = '/api/v1'
 
 // Associate all endpoints with respective HTTP method and callback
 const routes = [
-    {endpoint: '/test', method: 'get', callback: test}
+    {endpoint: '/test', method: 'get', callback: test},
+    {endpoint: '/addPerson', method: 'post', callback: addPerson}
 ];
 
 //=========================
@@ -35,6 +36,10 @@ function test(req, res, next){
             return res.json(data);
         });
     });
+}
+
+function addPerson(req, res, next) {
+  console.log("ADDING PERSON");
 }
 
 //===============================
