@@ -19,14 +19,22 @@ const api_prefix = '/api/v1'
 // Associate all endpoints with respective HTTP method and callback
 const routes = [
     {endpoint: '/test', method: 'get', callback: test},
-    {endpoint: '/addPerson', method: 'post', callback: addPerson}
+    {endpoint: '/addPerson', method: 'post', callback: addPerson},
+    {endpoint: '/locations', method: 'post', callback: create('locations')},
+    {endpoint: '/data/:datatype', method: 'post', callback: dataCallback}
 ];
 
 //=========================
 // Callback implementation
 //=========================
 
+function dataCallback(req, res, next){
+    console.log(req.params);
+    return res.send('ok');
+}
+
 function test(req, res, next){
+    console.log('TEST CALLBACK');
     db.collection('test', (err, coll)=>{
         if(err || !coll)
             return res.status(500).send('Unable to access test collection.');
@@ -40,6 +48,14 @@ function test(req, res, next){
 
 function addPerson(req, res, next) {
   console.log("ADDING PERSON");
+
+function locations(req,res, next){
+    console.log('LOCATIONS CALLBACK', req.body);
+    db.collection('locations', (err, coll)=>{
+        coll.insert(req.body);
+        res.send("Ok");
+    })
+
 }
 
 //===============================
@@ -58,3 +74,16 @@ module.exports = routes.map(route=>{
         callback: route.callback
     };
 });
+
+
+//========
+// General callbacks
+
+function create(collection_name){
+    return function(req, res, next){
+        db.collection(collection_name, (err, coll)=>{
+            coll.insert(req.body);
+            return res.send('OK');
+        });
+    };
+}

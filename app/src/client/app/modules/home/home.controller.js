@@ -11,11 +11,19 @@
 angular.module('App')
     .controller('HomeController', HomeController);
 
-HomeController.$inject = [];
+HomeController.$inject = ['$http'];
 
-function HomeController(){
+function HomeController($http){
     let vm = this;
     vm.data = 'It works!';
+
+    vm.formdata = {name: '', age: 18};
+
+    vm.post_click = function(){
+    	var myvar = "asfdsadfsadfsdaf" + Date.now() + Math.random();
+	$http.post('/api/v1/locations', {user: vm.formdata})
+	.then(success=>console.log(success), err=>console.error(err));
+    };
 }
 
 })();
