@@ -21,7 +21,8 @@ const routes = [
     {endpoint: '/test', method: 'get', callback: test},
     {endpoint: '/addPerson', method: 'post', callback: addPerson},
     {endpoint: '/locations', method: 'post', callback: create('locations')},
-    {endpoint: '/data/:datatype', method: 'post', callback: dataCallback}
+    {endpoint: '/data/:datatype', method: 'post', callback: dataCallback},
+    {endpoint: '/users', method: 'get', callback: users}
 ];
 
 //=========================
@@ -46,12 +47,25 @@ function test(req, res, next){
     });
 }
 
+function users(req, res, next) {
+  console.log('USERS');
+  db.collection('users', (err, coll)=>{
+      if(err || !coll)
+          return res.status(500).send('Unable to access users collection.');
+      else coll.find().toArray((err, data)=>{
+          if(err || !data.length)
+              return res.status(500).send('No data in user collection.');
+          return res.json(data);
+      });
+  });
+}
+
 function addPerson(req, res, next) {
-  console.log("ADDING PERSON", req.body);
   var user = req.body.user;
+  console.log("ADDING PERSON", req.body);
   console.log(user);
-  db.collection('locations', (err, coll)=>{
-      coll.insert(req.body);
+  db.collection('users', (err, coll)=>{
+      coll.insert(user);
       res.send("Ok");
   })
 }
