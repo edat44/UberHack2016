@@ -16,6 +16,11 @@ HomeController.$inject = ['$http'];
 function HomeController($http){
     let vm = this;
     vm.data = 'It works!';
+    vm.student_hidden = true;
+
+    vm.toggle_student = function(){
+      $(".login").toggleClass("show");
+    }
 
     vm.formdata = {name: '', age: 18};
 

@@ -1,22 +1,20 @@
-<div class="page-header">
-    <h1>Home State</h1>
-</div>
+<head>
+  <title>Turbo Tutor</title>
+</head>
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <i class="pull-right">Controller info</i>
-        <small>vm data:&nbsp;{{vm.data}}</small>
+<div id="button_background">
+  <center>
+    <h1 id= "welcome"> Welcome to Turbo Tutor! </h1>
+    <h2 id="button_descrip"> I am a: </h2>
+    <button id="student_button" ng-click="vm.toggle_student()" class="home"> Student </button>
+    <button id="tutor_button" class="home"> Tutor </button>
+    <div id="login_form" class = "login">
+      <form >
+
+        <input class="form-control" ng-model="vm.formdata.name" placeholder="name">
+        <input class="form-control" ng-model="vm.formdata.age" type="number">
+
+      </form>
     </div>
-    <div class="panel-body">
-        <example data="hello world"></example>
-    </div>
+  </center>
 </div>
-
-<button ng-click="vm.post_click()">post</button>
-
-<form>
-
-<input class="form-control" ng-model="vm.formdata.name" placeholder="name">
-<input class="form-control" ng-model="vm.formdata.age" type="date">
-
-</form>
