@@ -18,15 +18,25 @@ function HomeController($http){
     vm.data = 'It works!';
 
     vm.toggle_student = function(){
-      $("#login_form").toggleClass("show");
+      if($("#login_form_tutor").hasClass("show")){
+        $("#login_form_tutor").toggleClass("show");
+      }
+      $("#login_form_student").toggleClass("show");
     }
 
     vm.toggle_tutor = function(){
-      $("#login_form").toggleClass("show");
+      if($("#login_form_student").hasClass("show")){
+        $("#login_form_student").toggleClass("show");
+      }
+      $("#login_form_tutor").toggleClass("show");
     }
-    vm.formdata = {Name: '', Age: 18};
+    vm.formdata = {Name: '', age: 18};
 
-    vm.post_click = function(){
+    vm.post_click_student = function(){
+      
+    }
+
+    vm.post_click_tutor = function(){
 	$http.post('/api/v1/locations', {user: vm.formdata})
 	.then(success=>console.log(success), err=>console.error(err));
     };

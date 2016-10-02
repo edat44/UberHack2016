@@ -10,13 +10,78 @@
     <button id="tutor_button" ng-click="vm.toggle_tutor()" class="home"> Tutor </button>
   </center>
 </div>
-<div id="login_form" class = "login">
+
+<div id="login_form_student" class = "login_student">
   <center>
   <form >
-
+    <h4>Name</h4>
     <input class="form-control" ng-model="vm.formdata.name" placeholder="Name">
-    <input class="form-control" ng-model="vm.formdata.age" type="number">
-    <button class="submit">Start!</button>
+    <h4>Grade</h4>
+    <select class="form-control" ng-model="vm.formdata.name">
+      <option value="Freshman">Freshman</option>
+      <option value="Sophomore">Sophomore</option>
+      <option value="Junior">Junior</option>
+      <option value="Senior">Senior</option>
+      <option value="Grad Student">Grad Student</option>
+    </select>
+    <h4>Subject you need help in</h4>
+    <select class="form-control" ng-model="vm.formdata.name">
+      <option value= "Architecture">Architecture</option>
+      <option value= "Business">Business</option>
+      <option value= "Chemistry">Chemistry</option>
+      <option value= "Computer Science">Computer Science</option>
+      <option value= "Economics">Economics</option>
+      <option value= "Engineering">Engineering</option>
+      <option value= "Foreign Language">Foreign Language</option>
+      <option value= "History">History</option>
+      <option value= "Mathematics">Mathematics</option>
+      <option value= "Music">Music</option>
+      <option value= "Philosophy">Philosophy</option>
+      <option value= "Physics">Physics</option>
+      <option value= "Science">Science</option>
+      <option value= "Theology">Theology</option>
+      <option value= "Writing/English"> Writing/English</option>
+    </select>
+    <button ng-click = "vm.post_click_student()" class="submit">Start!</button>
+  </form>
+  </center>
+</div>
+
+<div id="login_form_tutor" class = "login_tutor">
+  <center>
+  <form >
+    <h4>Name</h4>
+    <input class="form-control" ng-model="vm.formdata.name" placeholder="Name">
+    <h4>Grade</h4>
+    <select class="form-control" ng-model="vm.formdata.name">
+      <option>Freshman</option>
+      <option>Sophomore</option>
+      <option>Junior</option>
+      <option>Senior</option>
+      <option>Grad Student</option>
+    </select>
+    <h4>Subject you want to tutor</h4>
+    <table id = "tutor_classes">
+      <tr>
+        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Architecture">Architecture</input></th>
+        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Business">Business</input></th>
+        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Chemistry">Chemistry</input></th>
+        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Computer Science">Computer Science</input></th>
+        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Economics">Economics</input></th>
+        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Engineering">Engineering</input></th>
+        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Foreign Language">Foreign Language</input></th>
+      </tr>
+      <tr>
+        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "History">History</input></th>
+        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Mathematics">Mathematics</input></th>
+        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Philosophy">Philosophy</input></th>
+        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Physics">Physics</input></th>
+        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Science">Science</input></th>
+        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Theology">Theology</input></th>
+        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Writing/English"> Writing/English</input></th>
+      </tr>
+    </table>
+    <button ng-click: "vm.post_click_tutor" type= "checkbox" class="submit">Start!</button>
   </form>
   </center>
 </div>
