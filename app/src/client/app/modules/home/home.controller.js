@@ -30,10 +30,10 @@ function HomeController($http){
       }
       $("#login_form_tutor").toggleClass("show");
     }
-    vm.formdata = {Name: '', age: 18};
+    vm.formdata = {Name: '', : 18};
 
     vm.post_click_student = function(){
-      
+
     }
 
     vm.post_click_tutor = function(){

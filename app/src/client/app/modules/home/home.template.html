@@ -17,7 +17,7 @@
     <h4>Name</h4>
     <input class="form-control" ng-model="vm.formdata.name" placeholder="Name">
     <h4>Grade</h4>
-    <select class="form-control" ng-model="vm.formdata.name">
+    <select class="form-control" ng-model="vm.formdata.grade">
       <option value="Freshman">Freshman</option>
       <option value="Sophomore">Sophomore</option>
       <option value="Junior">Junior</option>
@@ -25,22 +25,21 @@
       <option value="Grad Student">Grad Student</option>
     </select>
     <h4>Subject you need help in</h4>
-    <select class="form-control" ng-model="vm.formdata.name">
-      <option value= "Architecture">Architecture</option>
-      <option value= "Business">Business</option>
-      <option value= "Chemistry">Chemistry</option>
-      <option value= "Computer Science">Computer Science</option>
-      <option value= "Economics">Economics</option>
-      <option value= "Engineering">Engineering</option>
-      <option value= "Foreign Language">Foreign Language</option>
-      <option value= "History">History</option>
-      <option value= "Mathematics">Mathematics</option>
-      <option value= "Music">Music</option>
-      <option value= "Philosophy">Philosophy</option>
-      <option value= "Physics">Physics</option>
-      <option value= "Science">Science</option>
-      <option value= "Theology">Theology</option>
-      <option value= "Writing/English"> Writing/English</option>
+    <select class="form-control" ng-model="vm.formdata.subject">
+      <option value= "architecture">Architecture</option>
+      <option value= "business">Business</option>
+      <option value= "chemistry">Chemistry</option>
+      <option value= "computer_science">Computer Science</option>
+      <option value= "economics">Economics</option>
+      <option value= "engineering">Engineering</option>
+      <option value= "foreign_language">Foreign Language</option>
+      <option value= "history">History</option>
+      <option value= "mathematics">Mathematics</option>
+      <option value= "philosophy">Philosophy</option>
+      <option value= "physics">Physics</option>
+      <option value= "science">Science</option>
+      <option value= "theology">Theology</option>
+      <option value= "writing"> Writing/English</option>
     </select>
     <button ng-click = "vm.post_click_student()" class="submit">Start!</button>
   </form>
@@ -53,7 +52,7 @@
     <h4>Name</h4>
     <input class="form-control" ng-model="vm.formdata.name" placeholder="Name">
     <h4>Grade</h4>
-    <select class="form-control" ng-model="vm.formdata.name">
+    <select class="form-control" ng-model="vm.formdata.grade">
       <option>Freshman</option>
       <option>Sophomore</option>
       <option>Junior</option>
@@ -63,22 +62,22 @@
     <h4>Subject you want to tutor</h4>
     <table id = "tutor_classes">
       <tr>
-        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Architecture">Architecture</input></th>
-        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Business">Business</input></th>
-        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Chemistry">Chemistry</input></th>
-        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Computer Science">Computer Science</input></th>
-        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Economics">Economics</input></th>
-        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Engineering">Engineering</input></th>
-        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Foreign Language">Foreign Language</input></th>
+        <th><input  ng-model="vm.formdata.subject.architecture" type= "checkbox" value= "Architecture">Architecture</input></th>
+        <th><input  ng-model="vm.formdata.subject.business" type= "checkbox" value= "Business">Business</input></th>
+        <th><input  ng-model="vm.formdata.subject.chemistry" type= "checkbox" value= "Chemistry">Chemistry</input></th>
+        <th><input  ng-model="vm.formdata.subject.computer_science" type= "checkbox" value= "Computer Science">Computer Science</input></th>
+        <th><input  ng-model="vm.formdata.subject.economics" type= "checkbox" value= "Economics">Economics</input></th>
+        <th><input  ng-model="vm.formdata.subject.engineering" type= "checkbox" value= "Engineering">Engineering</input></th>
+        <th><input  ng-model="vm.formdata.subject.foreign_language" type= "checkbox" value= "Foreign Language">Foreign Language</input></th>
       </tr>
       <tr>
-        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "History">History</input></th>
-        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Mathematics">Mathematics</input></th>
-        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Philosophy">Philosophy</input></th>
-        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Physics">Physics</input></th>
-        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Science">Science</input></th>
-        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Theology">Theology</input></th>
-        <th><input  ng-model="vm.formdata.name" type= "checkbox" value= "Writing/English"> Writing/English</input></th>
+        <th><input  ng-model="vm.formdata.subject.history" type= "checkbox" value= "History">History</input></th>
+        <th><input  ng-model="vm.formdata.subject.mathematics" type= "checkbox" value= "Mathematics">Mathematics</input></th>
+        <th><input  ng-model="vm.formdata.subject.philosophy" type= "checkbox" value= "Philosophy">Philosophy</input></th>
+        <th><input  ng-model="vm.formdata.subject.physics" type= "checkbox" value= "Physics">Physics</input></th>
+        <th><input  ng-model="vm.formdata.subject.science" type= "checkbox" value= "Science">Science</input></th>
+        <th><input  ng-model="vm.formdata.subject.theology" type= "checkbox" value= "Theology">Theology</input></th>
+        <th><input  ng-model="vm.formdata.subject.writing" type= "checkbox" value= "Writing/English"> Writing/English</input></th>
       </tr>
     </table>
     <button ng-click: "vm.post_click_tutor" type= "checkbox" class="submit">Start!</button>
