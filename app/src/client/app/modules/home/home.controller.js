@@ -32,12 +32,7 @@ function HomeController($http){
         $("#login_form_student").toggleClass("show");
       }
       $("#login_form_tutor").toggleClass("show");
-<<<<<<< HEAD
-    }
-    vm.formdata = {Name: '', age: 18};
-=======
     };
->>>>>>> origin/master
 
 
 
