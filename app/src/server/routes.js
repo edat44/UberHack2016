@@ -23,6 +23,7 @@ const routes = [
     {endpoint: '/locations', method: 'post', callback: create('locations')},
     {endpoint: '/data/:datatype', method: 'post', callback: dataCallback},
     {endpoint: '/users', method: 'get', callback: users}
+    //{endpoint: '/cookie', methodd: 'post', callback: makeACookie}
 ];
 
 //=========================
