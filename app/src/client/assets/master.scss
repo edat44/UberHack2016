@@ -15,14 +15,24 @@ $fa-font-path: "./fonts";
 @import "bootstrap";
 @import "font-awesome";
 
+.navbar {
+  margin-bottom: 0px !important;
+}
+
+h1 {
+  position: relative;
+  margin-top: 0px;
+}
+
+//Main Screen Menu Styling
 #button_background {
-    height: 500px;
+    height: 30em;
     width: 100%;
     margin: 0 auto;
     background-image: url("desk.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: top;
 }
 
 #welcome {
@@ -64,12 +74,43 @@ button.home:hover {
 div.login {
   transition: 0.4s ease-in-out;
   opacity: 0;
+  padding-top: -50px;
   overflow: hidden;
   max-height: 0px;
 }
 
 div.login.show{
   opacity: 1;
-  background-color: #939393;
-  max-height: 100px;
+  background: linear-gradient(180deg, #7a7a7a,#d1d1d1);
+  border-radius: 12px;
+  max-height: 200px;
+}
+
+button.submit {
+    background-color: white;
+    border: 2px solid #21c637;
+    color: #21c637;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 25px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+button.submit:hover {
+  background-color: #23d620;
+  border: 2px solid white;
+  color: white;
+}
+
+//Main Screen Description
+#site_description {
+  height: 500px;
+  background-color: #bf2b2b;
+  padding-left: 30px;
+  padding-top:10px;
+  padding-bottom: 20px;
+  color: white;
 }

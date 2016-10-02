@@ -7,14 +7,29 @@
     <h1 id= "welcome"> Welcome to Turbo Tutor! </h1>
     <h2 id="button_descrip"> I am a: </h2>
     <button id="student_button" ng-click="vm.toggle_student()" class="home"> Student </button>
-    <button id="tutor_button" class="home"> Tutor </button>
-    <div id="login_form" class = "login">
-      <form >
-
-        <input class="form-control" ng-model="vm.formdata.name" placeholder="name">
-        <input class="form-control" ng-model="vm.formdata.age" type="number">
-
-      </form>
-    </div>
+    <button id="tutor_button" ng-click="vm.toggle_tutor()" class="home"> Tutor </button>
   </center>
+</div>
+<div id="login_form" class = "login">
+  <center>
+  <form >
+
+    <input class="form-control" ng-model="vm.formdata.name" placeholder="Name">
+    <input class="form-control" ng-model="vm.formdata.age" type="number">
+    <button class="submit">Start!</button>
+  </form>
+  </center>
+</div>
+
+<div id="site_description">
+  <h1>What is Turbo Tutor?</h1>
+  <h3>Turbo Tutor is the world's most convenient way to
+    connect students with help that they need!
+  </h3>
+  <p> Current methods of tutoring are inconvenient for both the student seeking help
+  and the tutor.  Oftentimes, tutoring schedules do not line up
+  with the available times for the student, which means the tutors sit idly for hours
+  and the students don't get the help that they need.  Turbo Tutor solves both of these
+  problems by allowing tutors to set their own schedules and students to get instant help.
+  </p>
 </div>
