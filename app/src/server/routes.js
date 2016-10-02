@@ -90,6 +90,10 @@ function addTutor(req, res, next) {
 function addUser(user) {
   console.log(user);
   let collection = user.role + 's';
+  if (!db.collection(collection)) {
+    console.log("creating collection " + collection);
+    db.createCollection(collection);
+  }
   console.log(collection);
   db.collection(collection, (err, coll)=>{
       coll.insert(user);
