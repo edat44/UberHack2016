@@ -16,28 +16,34 @@ HomeController.$inject = ['$http'];
 function HomeController($http){
     let vm = this;
     vm.data = 'It works!';
+    vm.formdata = {};
 
     vm.toggle_student = function(){
+      vm.formdata.subject = null;
       if($("#login_form_tutor").hasClass("show")){
         $("#login_form_tutor").toggleClass("show");
       }
       $("#login_form_student").toggleClass("show");
-    }
+    };
 
     vm.toggle_tutor = function(){
+      vm.formdata.subject = null;
       if($("#login_form_student").hasClass("show")){
         $("#login_form_student").toggleClass("show");
       }
       $("#login_form_tutor").toggleClass("show");
-    }
-    vm.formdata = {Name: '', age: 18};
+    };
+
+
 
     vm.post_click_student = function(){
-
-    }
+      //console.log("Adding student?");
+  	$http.post('/api/v1/addStudent', {user: vm.formdata})
+  	.then(success=>console.log(success), err=>console.error(err));
+    };
 
     vm.post_click_tutor = function(){
-	$http.post('/api/v1/locations', {user: vm.formdata})
+	$http.post('/api/v1/addTutor', {user: vm.formdata})
 	.then(success=>console.log(success), err=>console.error(err));
     };
 }

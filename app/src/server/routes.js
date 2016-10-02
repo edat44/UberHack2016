@@ -13,13 +13,16 @@
 const mongodb   = require('mongodb');
 let ObjectId    = mongodb.ObjectId, db;
 
+//const SUBJECTS = {"computer_science", "philosophy"};
+
 // Prepends all API endpoints (e.g. /test -> /api/v1/test)
 const api_prefix = '/api/v1'
 
 // Associate all endpoints with respective HTTP method and callback
 const routes = [
     {endpoint: '/test', method: 'get', callback: test},
-    {endpoint: '/addPerson', method: 'post', callback: addPerson},
+    {endpoint: '/addStudent', method: 'post', callback: addStudent},
+    {endpoint: '/addTutor', method: 'post', callback: addTutor},
     {endpoint: '/locations', method: 'post', callback: create('locations')},
     {endpoint: '/data/:datatype', method: 'post', callback: dataCallback},
     {endpoint: '/users', method: 'get', callback: users}
@@ -61,15 +64,47 @@ function users(req, res, next) {
   });
 }
 
-function addPerson(req, res, next) {
+function addStudent(req, res, next) {
   var user = req.body.user;
-  console.log("ADDING PERSON", req.body);
+  user.role = 'student';
+  addUser(user);
+  res.send("Ok");
+}
+
+function addTutor(req, res, next) {
+  var user = req.body.user;
+  user.role = 'tutor';
+  //console.log(user.subject);
+  hasSubject(user, "computer_science");
+  addUser(user);
+  res.send("Ok");
+}
+
+function addUser(user) {
   console.log(user);
+  /*
   db.collection('users', (err, coll)=>{
       coll.insert(user);
       res.send("Ok");
   })
+  */
   //db.collection('users').remove();
+}
+
+function hasSubject(user, subject) {
+  var sub = user.subject;
+  if (typeof(sub) === "string")
+    return sub === subject;
+  else {
+    for (let key in sub) {
+      console.log("key: " + key + ", value: " + sub[key]);
+      if (sub.hasOwnProperty(key) && sub[key] === true && key === subject) {
+        console.log(user.name + " has the subject " + key);
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
 function locations(req,res, next){
