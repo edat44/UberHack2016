@@ -25,21 +25,28 @@ function AppConfig($urlRouterProvider, $stateProvider){
         controllerAs: 'vm',
         templateUrl: 'app/modules/home/home.template.html'
     })
-		
+
     .state('test', {
         url: '/test',
         controller: 'TestController',
         controllerAs: 'vm',
         templateUrl: 'app/modules/test/test.template.html'
-				
+
     })
-		
+
 		.state('hack', {
 			url: '/hack',
 			controller: 'HackController',
 			controllerAs: 'vm',
 			templateUrl: 'app/modules/hack/hack.template.html'
 		})
+
+    .state('integration', {
+      url: '/integration',
+      controller: 'IntegrationController',
+      controllerAs: 'vm',
+      templateUrl: 'app/modules/integration/integration.template.html'
+    })
     ;
 }
 

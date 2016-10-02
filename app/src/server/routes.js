@@ -23,10 +23,9 @@ const routes = [
     {endpoint: '/test', method: 'get', callback: test},
     {endpoint: '/addStudent', method: 'post', callback: addStudent},
     {endpoint: '/addTutor', method: 'post', callback: addTutor},
-    {endpoint: '/locations', method: 'post', callback: create('locations')},
-    {endpoint: '/data/:datatype', method: 'post', callback: dataCallback},
     {endpoint: '/students', method: 'get', callback: users('students')},
-    {endpoint: '/tutors', method: 'get', callback: users('tutors')}
+    {endpoint: '/tutors', method: 'get', callback: users('tutors')},
+    {endpoint: '/getTutors', method: 'post', callback: getTutorsFromId}
     //{endpoint: '/cookie', methodd: 'post', callback: makeACookie}
 ];
 
@@ -56,6 +55,7 @@ function users(collection) {
   console.log("READING " + collection);
   return function(req, res, next){
     if (!db.collection(collection)) {
+      console.log("creating collection " + collection);
       db.createCollection(collection);
     }
     db.collection(collection, (err, coll)=>{
@@ -64,6 +64,7 @@ function users(collection) {
             else coll.find().toArray((err, data)=>{
               if(err || !data.length)
                 return res.status(500).send('No data in user collection.');
+              //res.send('ok');
               return res.json(data);
             });
     });
@@ -113,14 +114,41 @@ function hasSubject(user, subject) {
   return false;
 }
 
-function locations(req,res, next){
-    console.log('LOCATIONS CALLBACK', req.body);
-    db.collection('locations', (err, coll)=>{
-        coll.insert(req.body);
-        res.send("Ok");
-    })
+function getTutorsFromId(req, res, next) {
+  //let id = req.body.id;
+  //console.log(id);
+  //console.log(getStudentById(id));
+  //let subject = s['subject'];
+  //console.log("SUBJECT TO MATCH: " + subject);
+  res.send('Ok');
+}
+
+function getTutorsFromStudent(student) {
+  console.log(student);
 
 }
+
+function getStudentById(targetId) {
+  /*
+  var cursor = db.collection('students').find( );
+  cursor.each(function(err, doc) {
+      if (doc != null) {
+        if (doc['_id'] == targetId) {
+           getTutorsFromStudent(doc);
+           return;
+        }
+      }
+   });
+   */
+   //return users('students');
+   //db.collection('students', (err, coll)=>{
+     //coll.find().toArray((err, data)=>{
+        //return data;
+      //});
+   //});
+}
+
+
 
 //===============================
 // DB connect, set module export
