@@ -147,7 +147,6 @@ button.submit:hover {
 button.name {
   background-color: transparent;
   border: transparent;
-  padding-left: 30px;
   font-size: 20px;
   color: black;
 }
@@ -156,14 +155,24 @@ button.name:hover{
   color: white;
 }
 
+#table_title {
+  background-color: #cccccc;
+  margin-bottom: 0px;
+  padding-top: 15px;
+  padding-bottom:15px;
+}
+
+#map {
+  width: 100%;
+}
 #container {
   width: 100%;
   box-shadow: 0 24px 32px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.50);
 }
 
 #cell {
-  background-color: #bf2b2b;
-  border: 4px solid #de6e6e;
+  background-color: #f1c1c1;
+  border: 4px solid #bf2b2b;
 }
 
 #nest {
