@@ -100,7 +100,7 @@ function TutorDisplayContoller($http){
     function doEverything() {
       getStudent();
       getTutors();
-      setTimeout(populateTutors, 500);
+      setTimeout(populateTutors, 1000);
     }
 
 }    // Create a map object and specify the DOM element for display.

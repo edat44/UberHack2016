@@ -19,7 +19,7 @@ function HomeController($http){
     vm.formdata = {};
 
     vm.toggle_student = function(){
-      vm.formdata.subject = null;
+      vm.formdata = {};
       if($("#login_form_tutor").hasClass("show")){
         $("#login_form_tutor").toggleClass("show");
       }
@@ -27,7 +27,7 @@ function HomeController($http){
     };
 
     vm.toggle_tutor = function(){
-      vm.formdata.subject = null;
+      vm.formdata = {};
       if($("#login_form_student").hasClass("show")){
         $("#login_form_student").toggleClass("show");
       }
