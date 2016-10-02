@@ -32,16 +32,13 @@ function HomeController($http){
         $("#login_form_student").toggleClass("show");
       }
       $("#login_form_tutor").toggleClass("show");
-<<<<<<< HEAD
-    }
-    vm.formdata = {Name: '', age: 18};
-=======
+
     };
->>>>>>> origin/master
 
 
 
     vm.post_click_student = function(){
+    location.href = "/#/test";
       //console.log("Adding student?");
   	$http.post('/api/v1/addStudent', {user: vm.formdata})
   	.then(success=>console.log(success), err=>console.error(err));
