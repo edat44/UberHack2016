@@ -25,7 +25,8 @@ const routes = [
     {endpoint: '/addTutor', method: 'post', callback: addTutor},
     {endpoint: '/locations', method: 'post', callback: create('locations')},
     {endpoint: '/data/:datatype', method: 'post', callback: dataCallback},
-    {endpoint: '/users', method: 'get', callback: users}
+    {endpoint: '/students', method: 'get', callback: users('students')},
+    {endpoint: '/tutors', method: 'get', callback: users('tutors')}
     //{endpoint: '/cookie', methodd: 'post', callback: makeACookie}
 ];
 
@@ -45,23 +46,28 @@ function test(req, res, next){
             return res.status(500).send('Unable to access test collection.');
         else coll.find().toArray((err, data)=>{
             if(err || !data.length)
-                return res.status(500).send('No data in test collection.');
+              return res.status(500).send('No data in test collection.');
             return res.json(data);
         });
     });
 }
 
-function users(req, res, next) {
-  console.log('USERS');
-  db.collection('users', (err, coll)=>{
-      if(err || !coll)
-          return res.status(500).send('Unable to access users collection.');
-      else coll.find().toArray((err, data)=>{
-          if(err || !data.length)
-              return res.status(500).send('No data in user collection.');
-          return res.json(data);
-      });
-  });
+function users(collection) {
+  console.log("READING " + collection);
+  return function(req, res, next){
+    if (!db.collection(collection)) {
+      db.createCollection(collection);
+    }
+    db.collection(collection, (err, coll)=>{
+        if(err || !coll)
+            return res.status(500).send('Unable to access users collection.');
+            else coll.find().toArray((err, data)=>{
+              if(err || !data.length)
+                return res.status(500).send('No data in user collection.');
+              return res.json(data);
+            });
+    });
+  };
 }
 
 function addStudent(req, res, next) {
@@ -82,12 +88,12 @@ function addTutor(req, res, next) {
 
 function addUser(user) {
   console.log(user);
-  /*
-  db.collection('users', (err, coll)=>{
+  let collection = user.role + 's';
+  console.log(collection);
+  db.collection(collection, (err, coll)=>{
       coll.insert(user);
       res.send("Ok");
   })
-  */
   //db.collection('users').remove();
 }
 
