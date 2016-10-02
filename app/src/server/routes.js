@@ -69,6 +69,7 @@ function addPerson(req, res, next) {
       coll.insert(user);
       res.send("Ok");
   })
+  //db.collection('users').remove();
 }
 
 function locations(req,res, next){
