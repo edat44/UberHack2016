@@ -21,8 +21,11 @@ function HackController($http){
 
     vm.post_click = function(){
 		$http.post('/api/v1/addPerson', {user: vm.formdata})
-	.then(success=>console.log(success), err=>console.error(err));
-    };
+	.then(success=> {
+    console.log(success);
+    alert(vm.formdata.name + " has been added!");
+    }, err=>console.error(err));
+  };
 }
 
 })();
