@@ -80,7 +80,7 @@ div.login_student {
 
 div.login_student.show{
   opacity: 1;
-  background: #7a7a7a;
+  background: #cccccc;
   max-height: 300px;
 }
 
@@ -93,7 +93,7 @@ div.login_tutor {
 
 div.login_tutor.show{
   opacity: 1;
-  background: #7a7a7a;
+  background: #cccccc;
   max-height: 300px;
 }
 
@@ -141,4 +141,32 @@ button.submit:hover {
   padding-top:10px;
   padding-bottom: 20px;
   color: white;
+}
+
+//Tutor List Styling
+button.name {
+  background-color: transparent;
+  border: transparent;
+  padding-left: 30px;
+  font-size: 20px;
+  color: black;
+}
+
+button.name:hover{
+  color: white;
+}
+
+#container {
+  width: 100%;
+  box-shadow: 0 24px 32px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.50);
+}
+
+#cell {
+  background-color: #bf2b2b;
+  border: 4px solid #de6e6e;
+}
+
+#nest {
+  padding-left: 30px;
+  min-width: 100px;
 }

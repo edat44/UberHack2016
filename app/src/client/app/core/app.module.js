@@ -13,7 +13,7 @@
 angular.module('App', [
     'ui.router',
     'ngCookies',
-    'angularUtils.directives.dirPagination'
+    'angularUtils.directives.dirPagination',
 ]);
 
 })();
