@@ -3,3 +3,4 @@ dist/
 *.swp
 *.swo
 log.txt
+mongo/
