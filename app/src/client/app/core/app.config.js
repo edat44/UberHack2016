@@ -47,6 +47,13 @@ function AppConfig($urlRouterProvider, $stateProvider){
       controllerAs: 'vm',
       templateUrl: 'app/modules/integration/integration.template.html'
     })
+
+    .state('tutorDisplay', {
+      url: '/tutorDisplay',
+      controller: 'TutorDisplayContoller',
+      controllerAs: 'vm',
+      templateUrl: 'app/modules/tutorDisplay/tutorDisplay.template.html'
+    })
     ;
 }
 

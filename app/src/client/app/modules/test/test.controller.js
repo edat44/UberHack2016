@@ -10,9 +10,9 @@ angular.module('App')
     {'name': 'Eric', 'grade': 'Senior', 'location': 'LaFun'}
     ];
 
-TestController.$inject = [];
+TestController.$inject = ['$http'];
 
-function TestController(){
+function TestController($http){
     let vm = this;
     vm.data = 'You\'re in the TEST state!';
 

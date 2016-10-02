@@ -37,7 +37,7 @@ function HomeController($http){
 
 
     vm.post_click_student = function(){
-    location.href = "/#/test";
+    location.href = "/#/tutorDisplay";
       //console.log("Adding student?");
   	$http.post('/api/v1/addStudent', {user: vm.formdata})
   	.then(success=>console.log(success), err=>console.error(err));
